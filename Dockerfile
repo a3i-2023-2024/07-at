@@ -20,9 +20,7 @@ RUN pip install ipympl==0.9.3 rise==5.7.1 jupyter-contrib-nbextensions==0.7.0
 RUN jupyter contrib nbextension install --system
 
 # Install the github version of BorutaShap
-WORKDIR /tmp
-RUN git clone https://github.com/Ekeany/Boruta-Shap.git BorutaShap
-WORKDIR /tmp/BorutaShap
+WORKDIR /app/BorutaShap
 RUN pip install -e .
 
 # Specify working directory

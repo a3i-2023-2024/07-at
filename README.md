@@ -8,7 +8,6 @@ author: michele.lombardi2@unibo.it
 This is the seventh lecture block for the 2022/2023 edition of the "AI in the Industry" course, from [University of Bologna](https://www.unibo.it). Each lecture consists of a tutorial that tackles a simplified industrial problem my means of AI techniques, from Machine Learning to Combinatorial Optimization (and later on their combination).
 
 While the whole course looks like cookbook, the real goal is using examples to teach how industrial problem can be methodically approaches, analyzed, and tackles using a combination of techniques.
-
 This tutorial in particular tackles a synthetic use case and deals with explainability and feature selection techniques.
 
 
@@ -48,7 +47,10 @@ Once you are done, pressing CTRL+C on the terminal will close the Docker contain
 
 For more information about how Docker works (such as the difference between images and containers, or how to get rid of all of them once you are done with the tutorial), you can check the [Docker documentation](https://docs.docker.com/).
 
-**A note on using this lecture without Docker:** some plotting function in the lecture require the graphviz system, which will be automatically installed in the container if you are using docker. If you don't use docker, make sure you also have graphviz installed.
+**A few notes on using this lecture without Docker:**
+
+* some plotting function in the lecture require the graphviz system, which will be automatically installed in the container if you are using docker. If you don't use docker, make sure you also have graphviz installed.
+* As of Nov 21, 2023, the lecture requires the last version of BorutaShap, which is not yet available on PyPI. For this reason, a copy of the library is included in the lecture and will be installed by default when building the Docker image. If running without Docker, using virtualenv or similar tools is _highly_ recommended to avoid causing versioning issues.
 
 ## Read-only Access and PDF Notes ##
 

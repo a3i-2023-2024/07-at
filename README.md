@@ -13,6 +13,8 @@ This tutorial in particular tackles a synthetic use case and deals with explaina
 
 # Accessing the Lecture #
 
+**NOTE:**  As of Nov 21, 2023, the lecture requires a specific version of the [BorutaShap](https://github.com/Ekeany/Boruta-Shap) package, which is not yet available on PyPI. For this reason, a copy of the library is included in the lecture and will be installed by default when building the Docker image. If running without Docker, using virtualenv or similar tools is _highly_ recommended to avoid causing versioning issues.
+
 ## Local Execution (Preferred) ##
 
 Students are strongly encouraged to _run all lectures locally_. Doing this will require to:
@@ -47,10 +49,7 @@ Once you are done, pressing CTRL+C on the terminal will close the Docker contain
 
 For more information about how Docker works (such as the difference between images and containers, or how to get rid of all of them once you are done with the tutorial), you can check the [Docker documentation](https://docs.docker.com/).
 
-**A few notes on using this lecture without Docker:**
-
-* some plotting function in the lecture require the graphviz system, which will be automatically installed in the container if you are using docker. If you don't use docker, make sure you also have graphviz installed.
-* As of Nov 21, 2023, the lecture requires the last version of BorutaShap, which is not yet available on PyPI. For this reason, a copy of the library is included in the lecture and will be installed by default when building the Docker image. If running without Docker, using virtualenv or similar tools is _highly_ recommended to avoid causing versioning issues.
+**A note on using this lecture without Docker:** some plotting function in the lecture require the graphviz system, which will be automatically installed in the container if you are using docker. If you don't use docker, make sure you also have graphviz installed.
 
 ## Read-only Access and PDF Notes ##
 

@@ -136,4 +136,4 @@ dmypy.json
 .wget-hsts
 
 # Do not sync the vegashrinker file
-data/vegashrinker.csv
+data/shap_values.pickle

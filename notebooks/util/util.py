@@ -6,7 +6,7 @@ import pandas as pd
 import os
 import numpy as np
 import scipy
-from scipy.stats import norm, bernoulli, uniform, multivariate_normal
+from scipy.stats import norm, bernoulli, uniform, multivariate_normal, binom
 from scipy.special import expit, logit
 
 def plot_series(data, labels=None,
@@ -504,3 +504,35 @@ def generate_data(size=100, seed=None):
     data = np.hstack([in_vals, y.reshape(-1, 1)])
     res = pd.DataFrame(columns=cnames, data=data)
     return res, name_map
+
+
+def binomial_plot(p, n, l_alpha=None, r_alpha=None,
+                  l_color='tab:green', r_color='tab:green',
+                  figsize=None, **kw_args):
+    # Define the input range
+    x = np.arange(0, n+1)
+    pmf = binom.pmf(x, n, p)
+    cdf = binom.cdf(x, n, p)
+
+    # Identify low- and high- section
+    if l_alpha is not None:
+        l_sep = int(np.argwhere(cdf <= l_alpha)[-1])
+        l_x = x[:l_sep+1]
+        l_pmf = pmf[:l_sep+1]
+    if r_alpha is not None:
+        r_sep = int(np.argwhere(cdf >= 1-r_alpha)[0])
+        r_x = x[r_sep:]
+        r_pmf = pmf[r_sep:]
+
+    # Build a figure
+    plt.figure(figsize=figsize)
+    plt.plot(x, pmf)
+    if l_alpha:
+        plt.plot(l_x, l_pmf, color=l_color, lw=5)
+    if r_alpha:
+        plt.plot(r_x, r_pmf, color=r_color, lw=5)
+    plt.xlabel(f'number of observed events')
+    plt.ylabel(f'probability')
+    plt.grid(':')
+
+
